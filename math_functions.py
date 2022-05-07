@@ -43,8 +43,10 @@ def exponent(base, power):
 
 
 def factorial(num):
-    if num <= 0:
+    if num < 0:
         raise ValueError
+    if num == 0:
+        return 1
     if num == 1:
         return num
     else:
@@ -52,8 +54,10 @@ def factorial(num):
 
 
 def permutation(num1, num2):
-    if num1 <= 0 or num2 <= 0:
+    if num1 < 0 or num2 < 0:
         raise ValueError
+    elif num2 == 0:
+        return 1
     elif num1 < num2:
         return 0
     elif num1 == num2:
@@ -63,9 +67,13 @@ def permutation(num1, num2):
 
 
 def combination(num1, num2):
-    if num1 <= 0 or num2 <= 0:
+    if num1 < 0 or num2 < 0:
         raise ValueError
-    if num1 < num2:
+    elif num1 == 0 and num2 == 0:
+        return 1
+    elif num1 == 0:
+        return 0
+    elif num1 < num2:
         return 0
     elif num1 == num2:
         return 1

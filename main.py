@@ -6,9 +6,10 @@ def main():
     window = Tk()
     window.title('Math Functions')
     window.geometry('600x600')
+    window.resizable(False, False)
     notebook = ttk.Notebook(window)
 
-    widgits = GUI(window, notebook)
+    widgets = GUI(window, notebook)
     window.mainloop()
 
 

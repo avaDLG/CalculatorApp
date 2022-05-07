@@ -1,5 +1,4 @@
 from tkinter import *
-import controller
 from tkinter import messagebox
 import math_functions as mf
 
@@ -22,145 +21,153 @@ class GUI:
         self.combination_frame = Frame(self.notebook, width=600, height=600)
         self.permutation_frame = Frame(self.notebook, width=600, height=600)
 
-        self.circle_intro_label = Label(self.circle_frame, text='COMPUTES AREA OF A CIRCLE!')
-        self.enter_radius_label = Label(self.circle_frame, text='ENTER RADIUS:')
-        self.radius_text = Text(self.circle_frame, height=1, width=17)
-        self.circle_evaluate_button = Button(self.circle_frame, text='Evaluate...',
-                                             command=self.circle_eval_clicked)
-        self.circle_result_label = Label(self.circle_frame, text='Your result is...')
-        self.circle_result_text = Text(self.circle_frame, height=1, width=17)
+        self.circle_intro_label = Label(self.circle_frame, text='COMPUTES AREA OF A CIRCLE!',
+                                        font=('Arial', 20, 'bold'))
+        self.enter_radius_label = Label(self.circle_frame, text='Enter Radius:', font=('Arial', 17, 'italic'))
+        self.radius_text = Text(self.circle_frame, height=1, width=20, font=('Arial', 17))
+        self.circle_evaluate_button = Button(self.circle_frame, text='Evaluate', height=3, width=10,
+                                             font=('Arial', 17, 'bold'), command=self.circle_eval_clicked)
+        self.circle_result_label = Label(self.circle_frame, text='Your result is...', font=('Arial', 17))
+        self.circle_result_data_label = Label(self.circle_frame, text='', height=4, width=20, font=('Arial', 20))
 
-        self.circle_intro_label.pack(side='top', pady=10)
+        self.circle_intro_label.pack(side='top', pady=15)
         self.enter_radius_label.pack(side='top', pady=10)
         self.radius_text.pack()
         self.circle_evaluate_button.pack(pady=20)
-        self.circle_result_label.pack(pady=35)
-        self.circle_result_text.pack()
+        self.circle_result_label.pack(pady=5)
+        self.circle_result_data_label.pack()
 
-        self.square_intro_label = Label(self.square_frame, text='COMPUTES AREA OF A SQUARE!')
-        self.enter_side_label = Label(self.square_frame, text='ENTER SIDE LENGTH')
-        self.side_length_text = Text(self.square_frame, height=1, width=17)
-        self.square_eval_button = Button(self.square_frame, text='Evaluate...',
-                                         command=self.square_eval_clicked)
-        self.square_result_label = Label(self.square_frame, text='Your result is...')
-        self.square_result_text = Text(self.square_frame, height=1, width=17)
+        self.square_intro_label = Label(self.square_frame, text='COMPUTES AREA OF A SQUARE!',
+                                        font=('Arial', 20, 'bold'))
+        self.enter_side_label = Label(self.square_frame, text='Enter Side Length:', font=('Arial', 17, 'italic'))
+        self.side_length_text = Text(self.square_frame, height=1, width=20, font=('Arial', 17))
+        self.square_eval_button = Button(self.square_frame, text='Evaluate', height=3, width=10,
+                                         font=('Arial', 17, 'bold'), command=self.square_eval_clicked)
+        self.square_result_label = Label(self.square_frame, text='Your result is...', font=('Arial', 17))
+        self.square_result_new_label = Label(self.square_frame, text='', height=4, width=20, font=('Arial', 20))
 
-        self.square_intro_label.pack(side='top', pady=10)
+        self.square_intro_label.pack(side='top', pady=15)
         self.enter_side_label.pack(pady=10)
         self.side_length_text.pack()
         self.square_eval_button.pack(pady=20)
-        self.square_result_label.pack(pady=35)
-        self.square_result_text.pack()
+        self.square_result_label.pack(pady=5)
+        self.square_result_new_label.pack()
 
-        self.triangle_intro_label = Label(self.triangle_frame, text='COMPUTES AREA OF A TRIANGLE!')
-        self.enter_base_tri = Label(self.triangle_frame, text='ENTER BASE LENGTH')
-        self.base_tri_text = Text(self.triangle_frame, height=1, width=17)
-        self.enter_height_tri = Label(self.triangle_frame, text='ENTER HEIGHT LENGTH')
-        self.height_tri_text = Text(self.triangle_frame, height=1, width=17)
-        self.tri_eval_button = Button(self.triangle_frame, text='Evaluate...',
-                                      command=self.tri_eval_clicked)
-        self.tri_result_label = Label(self.triangle_frame, text='Your result is...')
-        self.tri_result_text = Text(self.triangle_frame, height=1, width=17)
+        self.triangle_intro_label = Label(self.triangle_frame, text='COMPUTES AREA OF A TRIANGLE!',
+                                          font=('Arial', 20, 'bold'))
+        self.enter_base_tri = Label(self.triangle_frame, text='Enter Base Length:', font=('Arial', 17, 'italic'))
+        self.base_tri_text = Text(self.triangle_frame, height=1, width=20, font=('Arial', 17))
+        self.enter_height_tri = Label(self.triangle_frame, text='Enter Height Length:', font=('Arial', 17, 'italic'))
+        self.height_tri_text = Text(self.triangle_frame, height=1, width=20, font=('Arial', 17))
+        self.tri_eval_button = Button(self.triangle_frame, text='Evaluate', height=3, width=10,
+                                      font=('Arial', 17, 'bold'), command=self.tri_eval_clicked)
+        self.tri_result_label = Label(self.triangle_frame, text='Your result is...', font=('Arial', 17))
+        self.tri_result_data_label = Label(self.triangle_frame, text='', height=4, width=20, font=('Arial', 20))
 
-        self.triangle_intro_label.pack(side='top', pady=10)
+        self.triangle_intro_label.pack(side='top', pady=15)
         self.enter_base_tri.pack(pady=10)
         self.base_tri_text.pack()
         self.enter_height_tri.pack(pady=10)
         self.height_tri_text.pack()
         self.tri_eval_button.pack(pady=20)
-        self.tri_result_label.pack(pady=35)
-        self.tri_result_text.pack()
+        self.tri_result_label.pack(pady=5)
+        self.tri_result_data_label.pack()
 
-        self.rect_intro_label = Label(self.rectangle_frame, text='COMPUTES AREA OF RECTANGLE')
-        self.enter_base_rect = Label(self.rectangle_frame, text='ENTER BASE LENGTH')
-        self.base_rect_text = Text(self.rectangle_frame, height=1, width=17)
-        self.enter_height_rect = Label(self.rectangle_frame, text='ENTER HEIGHT LENGTH')
-        self.height_rect_text = Text(self.rectangle_frame, height=1, width=17)
-        self.rect_eval_button = Button(self.rectangle_frame, text='Evaluate...',
-                                       command=self.rect_eval_clicked)
-        self.rect_result_label = Label(self.rectangle_frame, text='Your result is...')
-        self.rect_result_text = Text(self.rectangle_frame, height=1, width=17)
+        self.rect_intro_label = Label(self.rectangle_frame, text='COMPUTES AREA OF RECTANGLE',
+                                      font=('Arial', 20, 'bold'))
+        self.enter_base_rect = Label(self.rectangle_frame, text='Enter Base Length:', font=('Arial', 17, 'italic'))
+        self.base_rect_text = Text(self.rectangle_frame, height=1, width=20, font=('Arial', 17))
+        self.enter_height_rect = Label(self.rectangle_frame, text='Enter Height Length:', font=('Arial', 17, 'italic'))
+        self.height_rect_text = Text(self.rectangle_frame, height=1, width=20, font=('Arial', 17))
+        self.rect_eval_button = Button(self.rectangle_frame, text='Evaluate', height=3, width=10,
+                                       font=('Arial', 17, 'bold'), command=self.rect_eval_clicked)
+        self.rect_result_label = Label(self.rectangle_frame, text='Your result is...', font=('Arial', 17))
+        self.rect_result_data_label = Label(self.rectangle_frame, text='', height=4, width=20, font=('Arial', 20))
 
-        self.rect_intro_label.pack(side='top', pady=10)
+        self.rect_intro_label.pack(side='top', pady=15)
         self.enter_base_rect.pack(pady=10)
         self.base_rect_text.pack()
         self.enter_height_rect.pack(pady=10)
         self.height_rect_text.pack()
         self.rect_eval_button.pack(pady=20)
-        self.rect_result_label.pack(pady=35)
-        self.rect_result_text.pack()
-        
-        self.exponent_intro_label = Label(self.power_frame, text='COMPUTES EXPONENTS!')
-        self.enter_base_exp = Label(self.power_frame, text='ENTER THE BASE')
-        self.base_exp_text = Text(self.power_frame, height=1, width=17)
-        self.enter_power_exp = Label(self.power_frame, text='ENTER THE POWER')
-        self.power_exp_text = Text(self.power_frame, height=1, width=17)
-        self.exp_eval_button = Button(self.power_frame, text='Evaluate...',
-                                      command=self.exp_eval_clicked)
-        self.exp_result_label = Label(self.power_frame, text='Your result is...')
-        self.exp_result_text = Text(self.power_frame, height=1, width=17)
+        self.rect_result_label.pack(pady=5)
+        self.rect_result_data_label.pack()
 
-        self.exponent_intro_label.pack(side='top', pady=10)
+        self.exponent_intro_label = Label(self.power_frame, text='COMPUTES EXPONENTS!', font=('Arial', 20, 'bold'))
+        self.enter_base_exp = Label(self.power_frame, text='Enter The Base:', font=('Arial', 17, 'italic'))
+        self.base_exp_text = Text(self.power_frame, height=1, width=20, font=('Arial', 17))
+        self.enter_power_exp = Label(self.power_frame, text='Enter The Power:', font=('Arial', 17, 'italic'))
+        self.power_exp_text = Text(self.power_frame, height=1, width=20, font=('Arial', 17))
+        self.exp_eval_button = Button(self.power_frame, text='Evaluate', height=3, width=10,
+                                      font=('Arial', 17, 'bold'), command=self.exp_eval_clicked)
+        self.exp_result_label = Label(self.power_frame, text='Your result is...', font=('Arial', 17))
+        self.exp_result_data_label = Label(self.power_frame, text='', height=4, width=20, font=('Arial', 20))
+
+        self.exponent_intro_label.pack(side='top', pady=15)
         self.enter_base_exp.pack(pady=10)
         self.base_exp_text.pack()
         self.enter_power_exp.pack(pady=10)
         self.power_exp_text.pack()
         self.exp_eval_button.pack(pady=20)
-        self.exp_result_label.pack(pady=35)
-        self.exp_result_text.pack()
+        self.exp_result_label.pack(pady=5)
+        self.exp_result_data_label.pack()
 
-        self.fact_intro_label = Label(self.factorial_frame, text='COMPUTES FACTORIALS!')
-        self.enter_num_fact = Label(self.factorial_frame, text='ENTER YOUR NUMBER')
-        self.num_fact_text = Text(self.factorial_frame, height=1, width=17)
-        self.fact_eval_button = Button(self.factorial_frame, text='Evaluate...',
-                                       command=self.fact_eval_clicked)
-        self.fact_result_label = Label(self.factorial_frame, text='Your result is...')
-        self.fact_result_text = Text(self.factorial_frame, height=1, width=17)
+        self.fact_intro_label = Label(self.factorial_frame, text='COMPUTES FACTORIALS!', font=('Arial', 20, 'bold'))
+        self.enter_num_fact = Label(self.factorial_frame, text='Enter Your Number:', font=('Arial', 17, 'italic'))
+        self.num_fact_text = Text(self.factorial_frame, height=1, width=20, font=('Arial', 17))
+        self.fact_eval_button = Button(self.factorial_frame, text='Evaluate', height=3, width=10,
+                                       font=('Arial', 17, 'bold'), command=self.fact_eval_clicked)
+        self.fact_result_label = Label(self.factorial_frame, text='Your result is...', font=('Arial', 17))
+        self.fact_result_data_label = Label(self.factorial_frame, text='', height=4, width=20, font=('Arial', 20))
 
-        self.fact_intro_label.pack(side='top', pady=10)
+        self.fact_intro_label.pack(side='top', pady=15)
         self.enter_num_fact.pack(pady=10)
         self.num_fact_text.pack()
         self.fact_eval_button.pack(pady=20)
-        self.fact_result_label.pack(pady=35)
-        self.fact_result_text.pack()
+        self.fact_result_label.pack(pady=5)
+        self.fact_result_data_label.pack()
 
-        self.comb_intro_label = Label(self.combination_frame, text='COMPUTES COMBINATIONS!')
-        self.enter_num1_label = Label(self.combination_frame, text='ENTER FIRST WHOLE NUMBER')
-        self.comb_num1_text = Text(self.combination_frame, height=1, width=17)
-        self.enter_num2_label = Label(self.combination_frame, text='ENTER SECOND WHOLE NUMBER')
-        self.comb_num2_text = Text(self.combination_frame, height=1, width=17)
-        self.comb_eval_button = Button(self.combination_frame, text='Evaluate...',
-                                       command=self.comb_eval_clicked)
-        self.comb_result_label = Label(self.combination_frame, text='Your result is...')
-        self.comb_result_text = Text(self.combination_frame, height=1, width=17)
+        self.comb_intro_label = Label(self.combination_frame, text='COMPUTES COMBINATIONS!', font=('Arial', 20, 'bold'))
+        self.enter_num1_label = Label(self.combination_frame, text='Enter First Whole Number:',
+                                      font=('Arial', 17, 'italic'))
+        self.comb_num1_text = Text(self.combination_frame, height=1, width=20, font=('Arial', 17))
+        self.enter_num2_label = Label(self.combination_frame, text='Enter Second Whole Number:',
+                                      font=('Arial', 17, 'italic'))
+        self.comb_num2_text = Text(self.combination_frame, height=1, width=20, font=('Arial', 17))
+        self.comb_eval_button = Button(self.combination_frame, text='Evaluate', height=3, width=10,
+                                       font=('Arial', 17, 'bold'), command=self.comb_eval_clicked)
+        self.comb_result_label = Label(self.combination_frame, text='Your result is...', font=('Arial', 17))
+        self.comb_result_data_label = Label(self.combination_frame, text='', height=4, width=20, font=('Arial', 20))
 
-        self.comb_intro_label.pack(side='top', pady=10)
+        self.comb_intro_label.pack(side='top', pady=15)
         self.enter_num1_label.pack(pady=10)
         self.comb_num1_text.pack()
         self.enter_num2_label.pack(pady=10)
         self.comb_num2_text.pack()
         self.comb_eval_button.pack(pady=20)
-        self.comb_result_label.pack(pady=35)
-        self.comb_result_text.pack()
+        self.comb_result_label.pack(pady=5)
+        self.comb_result_data_label.pack()
 
-        self.perm_intro_label = Label(self.permutation_frame, text='COMPUTES PERMUTATIONS!')
-        self.enter_perm_num1_label = Label(self.permutation_frame, text='ENTER FIRST WHOLE NUMBER')
-        self.perm_num1_text = Text(self.permutation_frame, height=1, width=17)
-        self.enter_perm_num2_label = Label(self.permutation_frame, text='ENTER SECOND WHOLE NUMBER')
-        self.perm_num2_text = Text(self.permutation_frame, height=1, width=17)
-        self.perm_eval_button = Button(self.permutation_frame, text='Evaluate...',
-                                       command=self.perm_eval_clicked)
-        self.perm_result_label = Label(self.permutation_frame, text='Your result is...')
-        self.perm_result_text = Text(self.permutation_frame, height=1, width=17)
+        self.perm_intro_label = Label(self.permutation_frame, text='COMPUTES PERMUTATIONS!', font=('Arial', 20, 'bold'))
+        self.enter_perm_num1_label = Label(self.permutation_frame, text='Enter First Whole Number:',
+                                           font=('Arial', 17, 'italic'))
+        self.perm_num1_text = Text(self.permutation_frame, height=1, width=20, font=('Arial', 17))
+        self.enter_perm_num2_label = Label(self.permutation_frame, text='Enter Second Whole Number:',
+                                           font=('Arial', 17, 'italic'))
+        self.perm_num2_text = Text(self.permutation_frame, height=1, width=20, font=('Arial', 17))
+        self.perm_eval_button = Button(self.permutation_frame, text='Evaluate', height=3, width=10,
+                                       font=('Arial', 17, 'bold'), command=self.perm_eval_clicked)
+        self.perm_result_label = Label(self.permutation_frame, text='Your result is...', font=('Arial', 17))
+        self.perm_result_data_label = Label(self.permutation_frame, text='', height=4, width=20, font=('Arial', 20))
 
-        self.perm_intro_label.pack(side='top', pady=10)
+        self.perm_intro_label.pack(side='top', pady=15)
         self.enter_perm_num1_label.pack(pady=10)
         self.perm_num1_text.pack()
         self.enter_perm_num2_label.pack(pady=10)
         self.perm_num2_text.pack()
         self.perm_eval_button.pack(pady=20)
-        self.perm_result_label.pack(pady=35)
-        self.perm_result_text.pack()
+        self.perm_result_label.pack(pady=5)
+        self.perm_result_data_label.pack()
 
         self.circle_frame.pack()
         self.square_frame.pack()
@@ -182,42 +189,42 @@ class GUI:
 
     def circle_eval_clicked(self):
         try:
-            self.circle_result_text.delete(1.0, END)
+            self.circle_result_data_label['text'] = ''
             result = mf.area_of_circle(float(self.radius_text.get(1.0, END)))
-            self.circle_result_text.insert(1.0, str(result))
+            self.circle_result_data_label['text'] = result
             self.radius_text.delete(1.0, END)
 
         except TypeError:
             messagebox.showerror('showerror', 'Must type a number')
-            self.circle_result_text.delete(1.0, END)
+            self.circle_result_data_label['text'] = ''
             self.radius_text.delete(1.0, END)
         except ValueError:
             messagebox.showerror('showerror', 'Must type a positive number')
-            self.circle_result_text.delete(1.0, END)
+            self.circle_result_data_label['text'] = ''
             self.radius_text.delete(1.0, END)
 
     def square_eval_clicked(self):
         try:
-            self.square_result_text.delete(1.0, END)
+            self.square_result_new_label['text'] = ''
             result = mf.area_of_square(float(self.side_length_text.get(1.0, END)))
-            self.square_result_text.insert(1.0, result)
+            self.square_result_new_label['text'] = result
             self.side_length_text.delete(1.0, END)
 
         except TypeError:
             messagebox.showerror('showerror', 'Must type a number')
-            self.square_result_text.delete(1.0, END)
+            self.square_result_new_label['text'] = ''
             self.side_length_text.delete(1.0, END)
         except ValueError:
             messagebox.showerror('showerror', 'Must type a positive number')
-            self.square_result_text.delete(1.0, END)
+            self.square_result_new_label['text'] = ''
             self.side_length_text.delete(1.0, END)
 
     def tri_eval_clicked(self):
         try:
-            self.tri_result_text.delete(1.0, END)
+            self.tri_result_data_label['text'] = ''
             result = mf.area_of_triangle(float(self.base_tri_text.get(1.0, END)),
                                          float(self.height_tri_text.get(1.0, END)))
-            self.tri_result_text.insert(1.0, result)
+            self.tri_result_data_label['text'] = result
             self.base_tri_text.delete(1.0, END)
             self.height_tri_text.delete(1.0, END)
 
@@ -225,19 +232,19 @@ class GUI:
             messagebox.showerror('showerror', 'Must type a number')
             self.base_tri_text.delete(1.0, END)
             self.height_tri_text.delete(1.0, END)
-            self.tri_result_text.delete(1.0, END)
+            self.tri_result_data_label['text'] = ''
         except ValueError:
             messagebox.showerror('showerror', 'Must type a positive number')
             self.base_tri_text.delete(1.0, END)
             self.height_tri_text.delete(1.0, END)
-            self.tri_result_text.delete(1.0, END)
+            self.tri_result_data_label['text'] = ''
 
     def rect_eval_clicked(self):
         try:
-            self.rect_result_text.delete(1.0, END)
+            self.rect_result_data_label['text'] = ''
             result = mf.area_of_rectangle(float(self.base_rect_text.get(1.0, END)),
                                           float(self.height_rect_text.get(1.0, END)))
-            self.rect_result_text.insert(1.0, result)
+            self.rect_result_data_label['text'] = result
             self.base_rect_text.delete(1.0, END)
             self.height_rect_text.delete(1.0, END)
 
@@ -245,86 +252,85 @@ class GUI:
             messagebox.showerror('showerror', 'Must type a number')
             self.base_rect_text.delete(1.0, END)
             self.height_rect_text.delete(1.0, END)
-            self.rect_result_text.delete(1.0, END)
+            self.rect_result_data_label['text'] = ''
         except ValueError:
             messagebox.showerror('showerror', 'Must type a positive number')
             self.base_rect_text.delete(1.0, END)
             self.height_rect_text.delete(1.0, END)
-            self.rect_result_text.delete(1.0, END)
+            self.rect_result_data_label['text'] = ''
 
     def exp_eval_clicked(self):
         try:
-            self.exp_result_text.delete(1.0, END)
+            self.exp_result_data_label['text'] = ''
             result = mf.exponent(float(self.base_exp_text.get(1.0, END)), float(self.power_exp_text.get(1.0, END)))
-            self.exp_result_text.insert(1.0, result)
+            self.exp_result_data_label['text'] = result
             self.base_exp_text.delete(1.0, END)
             self.power_exp_text.delete(1.0, END)
 
         except TypeError:
             messagebox.showerror('showerror', 'Must type a number')
-            self.exp_result_text.delete(1.0, END)
+            self.exp_result_data_label['text'] = ''
             self.base_exp_text.delete(1.0, END)
             self.power_exp_text.delete(1.0, END)
         except ValueError:
             messagebox.showerror('showerror', 'Must type a positive number')
-            self.base_rect_text.delete(1.0, END)
+            self.exp_result_data_label['text'] = ''
             self.base_exp_text.delete(1.0, END)
             self.power_exp_text.delete(1.0, END)
 
     def fact_eval_clicked(self):
         try:
-            self.fact_result_text.delete(1.0, END)
+            self.fact_result_data_label['text'] = ''
             result = mf.factorial(float(self.num_fact_text.get(1.0, END)))
-            self.fact_result_text.insert(1.0, result)
+            self.fact_result_data_label['text'] = result
             self.num_fact_text.delete(1.0, END)
 
         except TypeError:
             messagebox.showerror('showerror', 'Must type a number')
             self.num_fact_text.delete(1.0, END)
-            self.fact_result_text.delete(1.0, END)
+            self.fact_result_data_label['text'] = ''
 
         except ValueError:
             messagebox.showerror('showerror', 'Must type a positive number')
             self.num_fact_text.delete(1.0, END)
-            self.fact_result_text.delete(1.0, END)
+            self.fact_result_data_label['text'] = ''
 
     def comb_eval_clicked(self):
         try:
-            self.comb_result_text.delete(1.0, END)
+            self.comb_result_data_label['text'] = ''
             result = mf.combination(int(self.comb_num1_text.get(1.0, END)), int(self.comb_num2_text.get(1.0, END)))
-            self.comb_result_text.insert(1.0, result)
+            self.comb_result_data_label['text'] = result
             self.comb_num1_text.delete(1.0, END)
             self.comb_num2_text.delete(1.0, END)
 
         except TypeError:
             messagebox.showerror('showerror', 'Must type a number')
-            self.comb_result_text.delete(1.0, END)
+            self.comb_result_data_label['text'] = ''
             self.comb_num1_text.delete(1.0, END)
             self.comb_num2_text.delete(1.0, END)
 
         except ValueError:
             messagebox.showerror('showerror', 'Must type a positive number')
-            self.comb_result_text.delete(1.0, END)
+            self.comb_result_data_label['text'] = ''
             self.comb_num1_text.delete(1.0, END)
             self.comb_num2_text.delete(1.0, END)
 
     def perm_eval_clicked(self):
         try:
-            self.perm_result_text.delete(1.0, END)
+            self.perm_result_data_label['text'] = ''
             result = mf.permutation(int(self.perm_num1_text.get(1.0, END)), int(self.perm_num2_text.get(1.0, END)))
-            self.perm_result_text.insert(1.0, result)
+            self.perm_result_data_label['text'] = result
             self.perm_num1_text.delete(1.0, END)
             self.perm_num2_text.delete(1.0, END)
 
         except TypeError:
             messagebox.showerror('showerror', 'Must type a number')
-            self.perm_result_text.delete(1.0, END)
+            self.perm_result_data_label['text'] = ''
             self.perm_num1_text.delete(1.0, END)
             self.perm_num2_text.delete(1.0, END)
 
         except ValueError:
             messagebox.showerror('showerror', 'Must type a positive number')
-            self.perm_result_text.delete(1.0, END)
+            self.perm_result_data_label['text'] = ''
             self.perm_num1_text.delete(1.0, END)
             self.perm_num2_text.delete(1.0, END)
-
