@@ -227,7 +227,7 @@ class GUI:
             self.radius_text.delete(1.0, END)
 
         except TypeError:
-            messagebox.showerror('showerror', 'Must type a number')
+            messagebox.showerror('showerror', 'Must type a positive number')
             self.circle_result_data_label['text'] = ''
             self.radius_text.delete(1.0, END)
         except ValueError:
@@ -247,7 +247,7 @@ class GUI:
             self.side_length_text.delete(1.0, END)
 
         except TypeError:
-            messagebox.showerror('showerror', 'Must type a number')
+            messagebox.showerror('showerror', 'Must type a positive number')
             self.square_result_new_label['text'] = ''
             self.side_length_text.delete(1.0, END)
         except ValueError:
@@ -269,7 +269,7 @@ class GUI:
             self.height_tri_text.delete(1.0, END)
 
         except TypeError:
-            messagebox.showerror('showerror', 'Must type a number')
+            messagebox.showerror('showerror', 'Must type a positive number')
             self.base_tri_text.delete(1.0, END)
             self.height_tri_text.delete(1.0, END)
             self.tri_result_data_label['text'] = ''
@@ -293,7 +293,7 @@ class GUI:
             self.height_rect_text.delete(1.0, END)
 
         except TypeError:
-            messagebox.showerror('showerror', 'Must type a number')
+            messagebox.showerror('showerror', 'Must type a positive number')
             self.base_rect_text.delete(1.0, END)
             self.height_rect_text.delete(1.0, END)
             self.rect_result_data_label['text'] = ''
@@ -316,7 +316,7 @@ class GUI:
             self.power_exp_text.delete(1.0, END)
 
         except TypeError:
-            messagebox.showerror('showerror', 'Must type a number')
+            messagebox.showerror('showerror', 'Must type a positive number')
             self.exp_result_data_label['text'] = ''
             self.base_exp_text.delete(1.0, END)
             self.power_exp_text.delete(1.0, END)
@@ -338,7 +338,7 @@ class GUI:
             self.num_fact_text.delete(1.0, END)
 
         except TypeError:
-            messagebox.showerror('showerror', 'Must type a number')
+            messagebox.showerror('showerror', 'Must type a positive number')
             self.num_fact_text.delete(1.0, END)
             self.fact_result_data_label['text'] = ''
 
@@ -360,13 +360,13 @@ class GUI:
             self.comb_num2_text.delete(1.0, END)
 
         except TypeError:
-            messagebox.showerror('showerror', 'Must type a number')
+            messagebox.showerror('showerror', 'Must type a positive whole number')
             self.comb_result_data_label['text'] = ''
             self.comb_num1_text.delete(1.0, END)
             self.comb_num2_text.delete(1.0, END)
 
         except ValueError:
-            messagebox.showerror('showerror', 'Must type a positive number')
+            messagebox.showerror('showerror', 'Must type a positive whole number')
             self.comb_result_data_label['text'] = ''
             self.comb_num1_text.delete(1.0, END)
             self.comb_num2_text.delete(1.0, END)
@@ -384,13 +384,13 @@ class GUI:
             self.perm_num2_text.delete(1.0, END)
 
         except TypeError:
-            messagebox.showerror('showerror', 'Must type a number')
+            messagebox.showerror('showerror', 'Must type a positive whole number')
             self.perm_result_data_label['text'] = ''
             self.perm_num1_text.delete(1.0, END)
             self.perm_num2_text.delete(1.0, END)
 
         except ValueError:
-            messagebox.showerror('showerror', 'Must type a positive number')
+            messagebox.showerror('showerror', 'Must type a positive whole number')
             self.perm_result_data_label['text'] = ''
             self.perm_num1_text.delete(1.0, END)
             self.perm_num2_text.delete(1.0, END)
