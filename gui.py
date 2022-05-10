@@ -338,12 +338,12 @@ class GUI:
             self.num_fact_text.delete(1.0, END)
 
         except TypeError:
-            messagebox.showerror('showerror', 'Must type a positive number')
+            messagebox.showerror('showerror', 'Must type a positive whole number')
             self.num_fact_text.delete(1.0, END)
             self.fact_result_data_label['text'] = ''
 
         except ValueError:
-            messagebox.showerror('showerror', 'Must type a positive number')
+            messagebox.showerror('showerror', 'Must type a positive whole number')
             self.num_fact_text.delete(1.0, END)
             self.fact_result_data_label['text'] = ''
 

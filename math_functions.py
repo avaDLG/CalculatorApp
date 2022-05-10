@@ -62,12 +62,8 @@ def exponent(base, power) -> float:
     """
     if type(base) != int and type(base) != float and type(power) != int and type(power) != float:
         raise TypeError
-    if base <= 0 or power <= 0:
-        raise ValueError
-    if power == 1:
-        return base
     else:
-        return base * exponent(base, power-1)
+        return math.pow(base, power)
 
 
 def factorial(num) -> float:
@@ -76,6 +72,8 @@ def factorial(num) -> float:
     :param num: the number to calculate the factorial (multiply by all whole numbers less than num greater than 0)
     :return: the value of num!
     """
+    if type(num) == str or (int(num) != float(num)):
+        raise TypeError
     if num < 0:
         raise ValueError
     if num == 0:
@@ -84,6 +82,7 @@ def factorial(num) -> float:
         return num
     else:
         return num * factorial(num-1)
+
 
 
 def permutation(num1, num2) -> float:

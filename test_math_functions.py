@@ -71,6 +71,20 @@ class MyTestCase(unittest.TestCase):
             area_of_rectangle(1, 0)
             area_of_rectangle(0, 0)
 
+    def test_exponent(self):
+        self.assertEqual(exponent(1, 2), 1)
+        self.assertEqual(exponent(1.0, 2), 1)
+        self.assertEqual(exponent(1, 2.0), 1)
+        self.assertEqual(exponent(1.0, 2.0), 1)
+        self.assertEqual(exponent(1, 1.5), 1)
+        self.assertEqual(exponent(-1, 1), -1)
+        self.assertEqual(exponent(1, -1), 1)
+        self.assertEqual(exponent(-1, -1), -1)
+        with self.assertRaises(TypeError):
+            exponent('1', 1)
+            exponent(1, '1')
+            exponent('1', '1')
+
     def test_factorial(self):
         """
         to test the factorial function
@@ -82,6 +96,7 @@ class MyTestCase(unittest.TestCase):
         with self.assertRaises(TypeError):
             factorial('1')
             factorial('-1')
+            factorial(2.5)
         with self.assertRaises(ValueError):
             factorial(-1)
             factorial(-2)
